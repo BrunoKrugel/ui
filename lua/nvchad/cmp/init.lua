@@ -13,8 +13,8 @@ local M = {
       item.menu = cmp_ui.lspkind_text and item.kind or ""
       item.menu_hl_group = atom_styled and "LineNr" or "CmpItemKind" .. (item.kind or "")
 
-      local kind_icon = icons[item.kind] or ""
-      item.kind = (item.kind and (kind_icon .. " ")) or ""
+      item.kind = item.kind and icons[item.kind] .. " " or ""
+      item.kind = cmp_ui.icons_left and item.kind or " " .. item.kind
 
       if atom_styled or cmp_ui.icons_left then
         item.menu = " " .. item.menu
